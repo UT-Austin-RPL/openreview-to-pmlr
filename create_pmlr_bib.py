@@ -4,58 +4,57 @@ import json
 import shutil
 
 # Modifies the following CONSTANTS based on your need.
-CONFERENCE_NAME = 'corl22'
+CONFERENCE_NAME = 'corl23'
 ORAL_PAPER_IDS = [
-    "VD0nXUG5Qk",
-    "sK2aWU7X9b8",    
-    "52c5e73SlS2",    
-    "ZUtgUA0Fuwd",
-    "uhIfIEIiWm_",
-    "awciQcCEGJs",
-    "HbGgF93Ppoy",    
-    "_8DoIe8G3t",   
-    "ndYsaoyzCWv",
-    "esOrVR_8-rc",
-    "r-w9Wh-QVnH",    
-    "uhhA2OryTjj",    
-    "zldI4UpuG7v",    
-    "xK-UtqDpD7L",    
-    "X_qYPtJLaX8",    
-    "h0Yb0U_-Tki",    
-    "cF1dxVGxic-",    
-    "DE8rdNuGj_7",    
-    "4nt6RUGmILw",    
-    "t-IO7wCaNgH",    
-    "zNB_UVj5oKQ",    
-    "pVSaWTgDmCu",    
-    "Y_YUEEQMjQK",    
-    "bdHkMjBJG_w",    
-    "JWROnOf4w-K",    
-    "lLq09gVoaTE",    
-    "x6INXlnUGro",    
-    "Bxr45keYrf",    
-    "MoSC0pziRd",    
-    "z_hPo2Fu9A3",    
-    "xjTUxBfIzE",    
-    "Re3NjSwf0WF",    
-    "KWCZfuqshd",    
-    "4g3PwAp5nsX"
+    "VH6WIPF4Sj",
+    "Rb0nGIt_kh5",
+    "q0VAoefCI2",
+    "flyQ0v8cgC",
+    "b1tl3aOt2R2",
+    "WWiKBdcpNd",
+    "SgTPdyehXMA",
+    "DYPOvNot5F",
+    "69y5fzvaAT",
+    "3gh9hf3R6x",
+    "6kSohKYYTn0",
+    "uo937r5eTE",
+    "k-Fg8JDQmc",
+    "a0mFRgadGO",
+    "XEw-cnNsr6",
+    "C5MQUlzhVjQ",
+    "770xKAHeFS",
+    "-K7-1WvKO3F",
+    "pLCQkMojXI",
+    "nKWQnYkkwX",
+    "JkFeyEC6VXV",
+    "EvuAJ0wD98",
+    "4ZK8ODNyFXx",
+    "xQx1O7WXSA",
+    "hRZ1YjDZmTo",
+    "bIvIUNH9VQ",
+    "E2vL12SwO1",
+    "9_8LF30mOC",
+    "86aMPJn6hX9F",
+    "0hPkttoGAf",
+    "wMpOMO0Ss7a",
+    "pw-OTIYrGa",
+    "fa7FzDjhzs9",
 ]
 
 # Customizes the header of the bibtex based on your conference information.
 def write_proceeding_info():
-    bibtex_str = '@Proceedings{CoRL-2022,\n'
-    bibtex_str += '\tbooktitle = {Proceedings of The 6th Conference on Robot Learning},\n'
+    bibtex_str = '@Proceedings{CoRL-2023,\n'
+    bibtex_str += '\tbooktitle = {Proceedings of The 7th Conference on Robot Learning},\n'
     bibtex_str += '\tname = {Conference on Robot Learning},\n'
     bibtex_str += '\tshortname = {CoRL},\n'
-    bibtex_str += '\teditor = {Liu, Karen and Kulic, Dana and Ichnowski, Jeff},\n'
+    bibtex_str += '\teditor = {Tan, Jie and Toussaint, Marc and Darvish, Kourosh},\n'
     bibtex_str += '\tvolume = {},\n'
-    bibtex_str += '\tyear = {2022},\n'
-    bibtex_str += '\tstart = {2022-12-14},\n'
-    bibtex_str += '\tend = {2022-12-18},\n'
-    bibtex_str += '\tconference_url = {https://www.robot-learning.org/},\n'
-    bibtex_str += '\taddress = {Auckland, New Zealand},\n'
-    bibtex_str += '\tconference_number={6},\n'
+    bibtex_str += '\tyear = {2023},\n'
+    bibtex_str += '\tstart = {2023-11-06},\n'
+    bibtex_str += '\tend = {2023-11-09},\n'
+    bibtex_str += '\tconference_url = {https://www.corl2023.org/},\n'
+    bibtex_str += '\taddress = {Atlanta, USA},\n'
+    bibtex_str += '\tconference_number={7},\n'
     bibtex_str += '}\n\n'
     return bibtex_str
 
@@ -66,7 +65,7 @@ def create_identifiers(all_metadata):
     collision_id_count_dict = {}
 
     for i, metadata in zip(range(len(all_metadata)), all_metadata):
-        identifier = (metadata['submission_content']['authors'][0].split(' ')[-1]).lower() + '22'
+        identifier = (metadata['submission_content']['authors'][0].split(' ')[-1]).lower() + '23'
         paper_title = metadata['submission_content']['title']
         if identifier in unique_id_set:
             print('conflict found!', i, identifier, paper_title)
@@ -155,7 +154,7 @@ def read_paper_metadata(filename):
     return paper_metadata
 
 def split_metadata_and_identifiers(all_metadata, all_identifiers):
-    '''Splits the metadata and identifiers based on sections. In CoRL 2022, there are two sections: oral and poster.'''
+    '''Splits the metadata and identifiers based on sections. In CoRL 2023, there are two sections: oral and poster.'''
     oral_metadata = []
     poster_metadata = []
     oral_identifiers = []
